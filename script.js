@@ -14,6 +14,7 @@
 
 /* Для добавления предсказания в список воспользуйся шаблоном forecast-item */
 
+
 const button = document.querySelector(".forecast-btn");
 const container = document.querySelector('.container');
 const currentPrediction = document.querySelector('.current-forecast');
