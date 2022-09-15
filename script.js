@@ -16,10 +16,10 @@
 
 
 const button = document.querySelector(".forecast-btn");
-const container = document.querySelector('.container');
+const container = document.querySelector('.forecasts');
 const currentPrediction = document.querySelector('.current-forecast');
 const predictionText = document.querySelector('.current-forecast h1');
-const predictionProbabilite = document.querySelector('.current-forecast p');
+const predictionProbability = document.querySelector('.current-forecast p');
 
 const prediction1 = "Вас ждет немало происшествий и интересных путешествий.";
 const prediction2 = "Очень скоро от друзей жди прекрасных новостей.";
@@ -34,7 +34,7 @@ function getRandomPrediction() {
 }
 
 function writeRandomPrediction(prediction, probability) {
-  switch(getRandomPrediction()) {
+  switch (getRandomPrediction()) {
     case 1:
       prediction = prediction1;
       break;
@@ -55,20 +55,20 @@ function writeRandomPrediction(prediction, probability) {
       break;
     case 7:
       prediction = prediction7;
-      break;  
+      break;
   }
+
   predictionText.textContent = prediction;
 
-  let probability = Math.floor(Math.random() * 100);
-  predictionProbabilite.textContent = `${probability}%`;
+  let probabilityValue = Math.floor(Math.random() * 100);
+  predictionProbability.textContent = `${probabilityValue}%`;
 
-  currentPrediction.append(predictionText, predictionProbabilite);
+  currentPrediction.append(predictionText, predictionProbability);
 
   return currentPrediction;
 }
 
-
-button.addEventListener('click', writeRandomPrediction ,{
+button.addEventListener('click', writeRandomPrediction, {
 
 });
 
@@ -83,5 +83,8 @@ function makePredictionByTemplate(prediction, probability) {
   return nextPrediction;
 }
 
-const newPrediction = makePredictionByTemplate(prediction, probability);
-container.append(newPrediction);
+button.addEventListener('click', makePredictionByTemplate, {
+  
+});
+
+container.append(nextPrediction);
