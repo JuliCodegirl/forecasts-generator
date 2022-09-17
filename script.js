@@ -74,17 +74,15 @@ button.addEventListener('click', writeRandomPrediction, {
 
 const predictionTemplate = document.getElementById('forecast-item');
 
-function makePredictionByTemplate(prediction, probability) {
+function makePredictionByTemplate() {
   const nextPrediction = predictionTemplate.content.cloneNode(true);
 
-  nextPrediction.querySelector('h3').textContent = prediction;
-  nextPrediction.querySelector('p').textContent = probability;
+  nextPrediction.querySelector('h3').textContent = predictionText.textContent;
+  nextPrediction.querySelector('p').textContent = predictionProbability.textContent;
 
-  return nextPrediction;
+  container.prepend(nextPrediction);
 }
 
 button.addEventListener('click', makePredictionByTemplate, {
   
 });
-
-container.append(nextPrediction);
